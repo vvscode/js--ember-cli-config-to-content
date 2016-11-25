@@ -1,11 +1,9 @@
 /* jshint node: true */
 'use strict';
 
-const getConfig = (config) => `<script>
-  (function() {
-    // put APP-config here
-  })();
-</script>`;
+const getConfig = ({APP}) => `(
+  ${JSON.stringify(APP, null, 2)}
+)`;
 
 module.exports = {
   name: 'config-to-html',
