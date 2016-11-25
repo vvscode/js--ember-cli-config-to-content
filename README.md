@@ -1,26 +1,22 @@
 # Config-to-html
 
-This README outlines the details of collaborating on this Ember addon.
+The main purpose of this addon - allow to past `APP` part of your ember-cli application into `index.html`.
+Our goal on creation such addon - add variables into `index.html` which allow us create pre-flight scripts/requests to improve performance during loading our application.
+
+You can imaging that it do almost the same as [ember-cli-content-for-config](https://github.com/bmac/ember-cli-content-for-config). The only difference - `content-for-config` allow export only certain fields from config. While this addon export **all** app-configuration into `index.html`
+
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `npm install vvscode/js--ember-cli-config-to-content --save-dev`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+Inside you `index.html` add something like
 
-## Running Tests
-
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+```javascript
+(function() {
+	var appConfig = {{content-for "config"}};
+	// put here the rest of your code
+})();
+```
